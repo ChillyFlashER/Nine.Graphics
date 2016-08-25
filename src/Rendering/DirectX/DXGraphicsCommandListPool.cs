@@ -4,6 +4,9 @@
     using System;
     using System.Collections.Concurrent;
 
+    /**
+     * 
+     */
     class DXGraphicsCommandListPool : ConcurrentBag<GraphicsCommandList>
     {
         private ConcurrentBag<GraphicsCommandList> spareObjects;
@@ -26,8 +29,10 @@
             this.spareObjects = new ConcurrentBag<GraphicsCommandList>();
         }
 
-        public GraphicsCommandList GetObject(PipelineState initialState = null)
+        public GraphicsCommandList GetObject(PipelineState initialState = null, bool startFrame = true)
         {
+            // TODO: Return to stack?
+
             GraphicsCommandList item;
 
             // Try to take object
@@ -35,12 +40,16 @@
             {
                 // Reset the object
                 item.Reset(allocator, initialState);
-                graphicsHost.BeginFrame(item);
-                return item;
+            }
+            else
+            {
+                // Create new object
+                this.Add(item = CreateNew(initialState));
             }
 
-            // Create new object
-            this.Add(item = CreateNew(initialState));
+            if (startFrame)
+                graphicsHost.BeginFrame(item);
+
             return item;
         }
         
@@ -60,7 +69,6 @@
         {
             var result = graphicsHost.Device.CreateCommandList(type, allocator, initialState);
             result.Name = $"{debugName} {this.Count}";
-            graphicsHost.BeginFrame(result);
             return result;
         }
     }

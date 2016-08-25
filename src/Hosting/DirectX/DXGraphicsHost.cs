@@ -42,7 +42,7 @@ namespace Nine.Graphics.Rendering
         public GraphicsCommandList RequestBundle(PipelineState initialState = null) => bundlePool.GetObject(initialState);
         private readonly DXGraphicsCommandListPool bundlePool;
 
-        public GraphicsCommandList RequestCommandList() => commandListPool.GetObject(null);
+        public GraphicsCommandList RequestCommandList() => commandListPool.GetObject(null, false);
         private readonly DXGraphicsCommandListPool commandListPool;
 
         // Pipeline Objects
@@ -138,7 +138,7 @@ namespace Nine.Graphics.Rendering
             rtvHandle += CurrentFrameIndex * rtvDescriptorSize;
             commandList.SetRenderTargets(1, rtvHandle, null);
 
-            var clearColor = new RawColor4(0, 0, 0, 0);
+            var clearColor = new RawColor4(1, 1, 1, 0);
             commandList.ClearRenderTargetView(rtvHandle, clearColor, 0, null);
 
             draw(window.Width, window.Height);

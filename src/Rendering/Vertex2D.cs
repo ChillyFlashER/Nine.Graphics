@@ -2,6 +2,7 @@
 {
     using System.Numerics;
 
+    // Visual Studio Graphics Analyzer: float2 x4byte float2
     public struct Vertex2D
     {
         public Vector2 Position;

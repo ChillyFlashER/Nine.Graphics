@@ -58,7 +58,7 @@
         {
             var host = new DXGraphicsHost(width, height);
 
-            var textureFactory = new DXTextureFactory(TextureLoader);
+            var textureFactory = new DXTextureFactory(host, TextureLoader);
             var fontFactory = new DXFontTextureFactory(FontLoader);
             var modelFactory = new DXModelFactory(ModelLoader);
 

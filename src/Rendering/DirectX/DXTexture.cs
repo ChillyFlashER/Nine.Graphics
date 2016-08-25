@@ -1,11 +1,18 @@
 ﻿namespace Nine.Graphics.Rendering
 {
+    using SharpDX.Direct3D12;
+
     public struct DXTexture
     {
-        public SharpDX.Direct3D12.Resource Resource;
+        public readonly Resource Resource;
 
-        public SharpDX.Direct3D12.GpuDescriptorHandle GpuDescriptorHandle;
-        public SharpDX.Direct3D12.CpuDescriptorHandle CpuDescriptorHandle;
+        //public readonly GpuDescriptorHandle GpuDescriptorHandle;
+        //public readonly CpuDescriptorHandle CpuDescriptorHandle;
+
+        public DXTexture(Resource resource)
+        {
+            this.Resource = resource;
+        }
 
         public static bool operator ==(DXTexture r, DXTexture l)
         {
