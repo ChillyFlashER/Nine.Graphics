@@ -1,7 +1,6 @@
 ﻿namespace Nine.Graphics.Rendering
 {
     using System;
-    using System.Drawing;
     using OpenTK;
     using OpenTK.Graphics;
     using OpenTK.Graphics.OpenGL;
@@ -19,7 +18,7 @@
 
             _window = new GameWindow(width, height, mode) { VSync = VSyncMode.Off };
 
-            GL.ClearColor(Color.Transparent);
+            GL.ClearColor(Color4.Transparent);
         }
 
         protected override void BeginFrame()

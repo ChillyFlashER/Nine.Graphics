@@ -1,7 +1,6 @@
 ﻿namespace Nine.Graphics.Rendering
 {
     using System;
-    using System.Drawing;
     using OpenTK.Graphics;
     using OpenTK.Graphics.OpenGL;
     using OpenTK.Platform;
@@ -20,7 +19,7 @@
 
             GraphicsContext = new GraphicsContext(mode ?? GraphicsMode.Default, Utilities.CreateWindowsWindowInfo(windowHandle));
 
-            GL.ClearColor(Color.Transparent);
+            GL.ClearColor(Color4.Transparent);
         }
 
         public bool DrawFrame(Action<int, int> draw, [CallerMemberName]string frameName = null)

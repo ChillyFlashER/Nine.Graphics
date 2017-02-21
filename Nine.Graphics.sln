@@ -5,7 +5,25 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nine.Graphics.Test", "test\Nine.Graphics.Test.csproj", "{65252ACE-C744-44C8-9AC1-197F54B329E0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BB1BC930-79E7-4034-A32C-DDCC10F790A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dep", "dep", "{B90F0D83-95E1-4437-A8C5-1507C7B37ABF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nine.Geometry", "dep\Nine.Geometry\src\Nine.Geometry.shproj", "{FE23C75C-DEAE-4C78-807C-998DB7A32125}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nine.Graphics", "src\Nine.Graphics.shproj", "{A32EA96C-B165-4FA1-B0F0-948C0C350787}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nine.Imaging", "dep\Nine.Imaging.shproj", "{FE23C75C-DEAE-4C78-807C-998DB7A32195}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Nine.Graphics.projitems*{a32ea96c-b165-4fa1-b0f0-948c0c350787}*SharedItemsImports = 13
+		dep\Nine.Geometry\src\Nine.Geometry.projitems*{fe23c75c-deae-4c78-807c-998db7a32125}*SharedItemsImports = 13
+		dep\Nine.Imaging.projitems*{fe23c75c-deae-4c78-807c-998db7a32195}*SharedItemsImports = 13
+		dep\Nine.Imaging.projitems*{65252ace-c744-44c8-9ac1-197f54b329e0}*SharedItemsImports = 4
+		src\Nine.Graphics.projitems*{65252ace-c744-44c8-9ac1-197f54b329e0}*SharedItemsImports = 4
+		dep\Nine.Geometry\src\Nine.Geometry.projitems*{65252ace-c744-44c8-9ac1-197f54b329e0}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -18,5 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65252ACE-C744-44C8-9AC1-197F54B329E0} = {BB1BC930-79E7-4034-A32C-DDCC10F790A9}
+		{FE23C75C-DEAE-4C78-807C-998DB7A32125} = {B90F0D83-95E1-4437-A8C5-1507C7B37ABF}
+		{A32EA96C-B165-4FA1-B0F0-948C0C350787} = {BB1BC930-79E7-4034-A32C-DDCC10F790A9}
+		{FE23C75C-DEAE-4C78-807C-998DB7A32195} = {B90F0D83-95E1-4437-A8C5-1507C7B37ABF}
 	EndGlobalSection
 EndGlobal

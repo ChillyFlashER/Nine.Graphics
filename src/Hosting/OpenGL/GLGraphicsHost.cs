@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Concurrent;
-    using System.Drawing;
     using System.Runtime.CompilerServices;
     using System.Threading;
     using OpenTK;
@@ -73,7 +72,7 @@
 
             GLDebug.CheckAccess();
 
-            GL.ClearColor(Color.Transparent);
+            GL.ClearColor(Color4.Transparent);
         }
 
         public bool DrawFrame(Action<int, int> draw, [CallerMemberName]string frameName = null)

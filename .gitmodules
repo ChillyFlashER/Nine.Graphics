@@ -1,3 +1,6 @@
 [submodule "dep/Nine.Imaging"]
 	path = dep/Nine.Imaging
 	url = https://github.com/yufeih/Nine.Imaging
+[submodule "dep/Nine.Geometry"]
+	path = dep/Nine.Geometry
+	url = https://github.com/studio-nine/Nine.Geometry.git

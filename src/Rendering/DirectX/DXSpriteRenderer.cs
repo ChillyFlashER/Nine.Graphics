@@ -5,7 +5,7 @@
 	using SharpDX.Direct3D12;
 	using SharpDX.DXGI;
 
-	public class DXSpriteRenderer : SpriteRenderer<DXTexture>, IDisposable
+	public class DXSpriteRenderer : SpriteRenderer<SharpDX.Direct3D12.Resource>, IDisposable
 	{
 		private static readonly string structShaderSource = @"
 struct PS_IN
@@ -162,7 +162,7 @@ float4 main(PS_IN input) : SV_Target
 			commandList.PrimitiveTopology = SharpDX.Direct3D.PrimitiveTopology.TriangleStrip;
 		}
 
-		protected override unsafe void Draw(Vertex2D* pVertex, int vertexCount, DXTexture texture, bool isTransparent)
+		protected override unsafe void Draw(Vertex2D* pVertex, int vertexCount, SharpDX.Direct3D12.Resource texture, bool isTransparent)
 		{
 			DXDebug.CheckAccess(graphicsHost.Device);
 

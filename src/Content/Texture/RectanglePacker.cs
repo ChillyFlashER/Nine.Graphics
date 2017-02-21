@@ -26,8 +26,8 @@
 
 namespace Nine.Graphics.Content
 {
+    using Nine.Geometry;
     using System;
-    using System.Drawing;
     using System.Collections.Generic;
 
     /// <summary>Rectangle packer using an algorithm by Javier Arevalo</summary>
@@ -334,7 +334,7 @@ namespace Nine.Graphics.Content
             // rectangles already in the packing area
             for (int index = 0; index < packedRectangles.Count; ++index)
             {
-                if (packedRectangles[index].IntersectsWith(rectangle))
+                if (packedRectangles[index].Intersects(rectangle))
                     return false;
             }
 

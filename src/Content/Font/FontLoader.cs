@@ -1,7 +1,6 @@
 ﻿namespace Nine.Graphics.Content
 {
     using System;
-    using System.Drawing;
     using System.IO;
     using System.Threading.Tasks;
     using SharpFont;
@@ -96,7 +95,7 @@
                 face.SetCharSize(parent._baseFontSize, parent._baseFontSize, 72, 72);
                 face.LoadGlyph(glyph, LoadFlags.Default, LoadTarget.Normal);
 
-                var point = default(Point);
+                var point = default(Geometry.Point);
                 var createsNewTexture = false;
                 var metrics = face.Glyph.Metrics;
                 var textureSize = parent._textureSize;

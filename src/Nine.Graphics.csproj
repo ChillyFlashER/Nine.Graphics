@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.5</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD1_6</DefineConstants>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD;NETSTANDARD1_6</DefineConstants>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\DirectX\*.cs" />
+    
+    <!-- not supported yet -->
+    <Compile Remove="Content\Font\*.cs" />
+    <Compile Remove="Content\Model\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssimpNet" Version="3.3.2" />
+    <PackageReference Include="OpenTK.NETCore" Version="1.1.2571.6431" />
+    <PackageReference Include="SharpFont" Version="4.0.1" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dep\Nine.Geometry\src\Nine.Geometry.csproj" />
+    <ProjectReference Include="..\dep\Nine.Imaging\src\Nine.Imaging.csproj" />
+  </ItemGroup>
+
+</Project>

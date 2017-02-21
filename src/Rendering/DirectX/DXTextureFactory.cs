@@ -5,7 +5,7 @@
     using SharpDX.Direct3D12;
     using SharpDX.DXGI;
 
-    public class DXTextureFactory : TextureFactory<DXTexture>
+    public class DXTextureFactory : TextureFactory<SharpDX.Direct3D12.Resource>
     {
         private readonly DXGraphicsHost graphicsHost;
 
@@ -15,7 +15,7 @@
             this.graphicsHost = host;
         }
 
-        public override Texture<DXTexture> CreateTexture(TextureContent data)
+        public override Texture<SharpDX.Direct3D12.Resource> CreateTexture(TextureContent data)
         {
             DXDebug.CheckAccess(graphicsHost.Device);
 
@@ -62,7 +62,7 @@
 
             textureUploadHeap.Dispose();
 
-            return new Texture<DXTexture>(new DXTexture(texture), data.Width, data.Height, data.Left, data.Right, data.Top, data.Bottom, data.IsTransparent);
+            return new Texture<SharpDX.Direct3D12.Resource>(texture, data.Width, data.Height, data.Left, data.Right, data.Top, data.Bottom, data.IsTransparent);
         }
 
         private long GetRequiredIntermediateSize(SharpDX.Direct3D12.Resource destinationResource, int firstSubresource, int NumSubresources)
